@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://testingcf.jsdelivr.net/npm/lxgw-wenkai-webfont@1/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1/style.css" />
     <style>
       /* ===== 三种字体 ===== */
       /* ===== Shippori Mincho B1(明朝), Fleur De Leah(花体), LXGW WenKai(霞鹜文楷) ===== */
@@ -5305,11 +5305,8 @@
         // 初始化时不再预渲染任何 CG 画廊图片，仅在玩家切换到剧情画廊页后按需渲染
       });
 
-      // 监听 MVU 变量更新，自动刷新状态栏和商品按钮持有状态
-      eventOn(Mvu.events.VARIABLE_UPDATE_ENDED, () => {
-        updateStatusFromVars();
-        refreshItemGridStyles();
-      });
+      // 不再自动监听 MVU 变量更新，避免高频触发导致卡顿/内存暴涨。
+      // 改为打开状态栏时手动刷新一次（见下方 $(() => {...}) 中的初始化）。
 
       // ===== 事件显示名称映射（变量名 → 界面显示文字） =====
       const EVENT_DISPLAY_MAP = {
