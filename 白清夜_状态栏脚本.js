@@ -5,7 +5,7 @@
 (function () {
   // 改成 HTML 文件所在目录的完整 URL，末尾必须带斜杠。
   // 注意：不能用相对路径，因为脚本加载到酒馆页面后，相对路径会相对于酒馆页面，而不是 JS 文件本身。
-  const NOTEBOOK_BASE_URL = 'https://cdn.jsdelivr.net//gh/abao-aball/my-tools-st/';
+  const NOTEBOOK_BASE_URL = 'https://testingcf.jsdelivr.net/gh/abao-aball/my-tools-st/';
 
   // 根据 User-Agent 判断是否为手机/平板
   const isMobile = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
